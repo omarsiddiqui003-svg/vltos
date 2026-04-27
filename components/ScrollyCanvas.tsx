@@ -22,25 +22,46 @@ export default function ScrollyCanvas({ scrollYProgress }: ScrollyCanvasProps) {
   // Preload images
   useEffect(() => {
     let isMounted = true;
-    const loadedImages: HTMLImageElement[] = [];
+    const loadedImages: HTMLImageElement[] = new Array(FRAME_COUNT);
     let loadedCount = 0;
     
-    // Create an array of promises to track loading
-    for (let i = 0; i < FRAME_COUNT; i++) {
-      const img = new window.Image();
-      img.src = getFramePath(i);
-      img.onload = () => {
-        loadedCount++;
-        // Render first frame as soon as it's loaded to prevent empty screen
-        if (loadedCount === 1 && isMounted) {
-          renderFrame(img);
+    // Load first frame immediately to prevent empty screen
+    const firstImg = new window.Image();
+    firstImg.src = getFramePath(0);
+    firstImg.onload = () => {
+      if (!isMounted) return;
+      loadedImages[0] = firstImg;
+      loadedCount++;
+      renderFrame(firstImg);
+      
+      // Load remaining frames with limited concurrency (e.g. 4 at a time)
+      let currentIndex = 1;
+      const loadNext = () => {
+        if (!isMounted || currentIndex >= FRAME_COUNT) {
+          if (loadedCount === FRAME_COUNT && isMounted) setImagesLoaded(true);
+          return;
         }
-        if (loadedCount === FRAME_COUNT && isMounted) {
-          setImagesLoaded(true);
-        }
+        const indexToLoad = currentIndex++;
+        const img = new window.Image();
+        img.src = getFramePath(indexToLoad);
+        img.onload = () => {
+          if (!isMounted) return;
+          loadedImages[indexToLoad] = img;
+          loadedCount++;
+          loadNext();
+        };
+        img.onerror = () => {
+          if (!isMounted) return;
+          loadedCount++;
+          loadNext();
+        };
       };
-      loadedImages.push(img);
-    }
+      
+      // Start 4 workers
+      for (let i = 0; i < 4; i++) {
+        loadNext();
+      }
+    };
     
     setImages(loadedImages);
 
@@ -53,15 +74,8 @@ export default function ScrollyCanvas({ scrollYProgress }: ScrollyCanvasProps) {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // Use device pixel ratio for sharper renders on retina displays
+    // We only set width/height on resize, not here, to avoid layout thrashing
     const dpr = window.devicePixelRatio || 1;
-    canvas.width = window.innerWidth * dpr;
-    canvas.height = window.innerHeight * dpr;
-    ctx.scale(dpr, dpr);
-
-    // Provide the original virtual dimensions for CSS
-    canvas.style.width = `${window.innerWidth}px`;
-    canvas.style.height = `${window.innerHeight}px`;
 
     // object-fit: cover logic
     const hRatio = window.innerWidth / image.width;
@@ -95,6 +109,19 @@ export default function ScrollyCanvas({ scrollYProgress }: ScrollyCanvasProps) {
 
   useEffect(() => {
     const handleResize = () => {
+      const canvas = canvasRef.current;
+      if (canvas) {
+        const ctx = canvas.getContext('2d');
+        if (ctx) {
+          const dpr = window.devicePixelRatio || 1;
+          canvas.width = window.innerWidth * dpr;
+          canvas.height = window.innerHeight * dpr;
+          ctx.scale(dpr, dpr);
+          canvas.style.width = `${window.innerWidth}px`;
+          canvas.style.height = `${window.innerHeight}px`;
+        }
+      }
+
       if (images.length > 0) {
         let frameIndex = Math.floor(scrollYProgress.get() * FRAME_COUNT);
         if (frameIndex >= FRAME_COUNT) frameIndex = FRAME_COUNT - 1;
@@ -106,6 +133,9 @@ export default function ScrollyCanvas({ scrollYProgress }: ScrollyCanvasProps) {
       }
     };
     
+    // Initial size setup
+    handleResize();
+
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, [images, scrollYProgress, renderFrame]);

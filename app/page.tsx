@@ -1,9 +1,6 @@
 "use client";
 
-import { useScroll } from "framer-motion";
-import { useRef } from "react";
-import ScrollyCanvas from "@/components/ScrollyCanvas";
-import Overlay from "@/components/Overlay";
+import Hero from "@/components/Hero";
 import AuthorityBar from "@/components/AuthorityBar";
 import OpportunityGap from "@/components/OpportunityGap";
 import Accelerator from "@/components/Accelerator";
@@ -15,23 +12,10 @@ import VltosPillars from "@/components/VltosPillars";
 import VaultFAQ from "@/components/VaultFAQ";
 
 export default function Home() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
 
   return (
     <main className="bg-[#0a0a0a] min-h-screen text-white selection:bg-white/30">
-      {/* Scrollytelling Hook Container */}
-      <div ref={containerRef} className="relative h-[400vh] md:h-[600vh] w-full bg-[#0a0a0a]">
-        <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
-          <ScrollyCanvas scrollYProgress={scrollYProgress} />
-          <Overlay scrollYProgress={scrollYProgress} />
-        </div>
-      </div>
-      
+      <Hero />
       <AuthorityBar />
 
       {/* VLTOS Funnel Flow mapping the new requirements */}
