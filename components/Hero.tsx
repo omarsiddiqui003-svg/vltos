@@ -33,7 +33,7 @@ export default function Hero() {
 
           {/* Logo Brand Title */}
           <div className="text-sm font-bold tracking-widest text-emerald-400 uppercase mb-6 bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 rounded-full shadow-[0_0_15px_rgba(16,185,129,0.1)]">
-            VLTOS
+            VLTOS — Digital Product Agency
           </div>
 
           <h1 className="text-4xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.05] text-white">
