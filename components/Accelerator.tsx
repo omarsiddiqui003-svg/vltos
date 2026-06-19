@@ -68,7 +68,7 @@ export default function Accelerator() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.3 }}
               key={step.id}
               className="relative z-10 glass-card bg-[#0f0f0f] border border-white/10 rounded-3xl p-8 flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-500"
             >

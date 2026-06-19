@@ -23,9 +23,9 @@ export default function Hero() {
 
       <div className="relative z-10 container mx-auto px-6 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
           className="mx-auto flex flex-col items-center justify-center p-8 md:p-16 bg-black/40 backdrop-blur-xl border border-white/10 rounded-[3rem] max-w-5xl shadow-2xl relative overflow-hidden"
         >
           {/* Subtle grid light line */}
