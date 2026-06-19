@@ -1,34 +1,37 @@
-import { Diamond, Cog, TrendingUp, Cpu } from "lucide-react";
+"use client";
+
+import { Box, Mail, Settings, BarChart2 } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function VltosPillars() {
   const pillars = [
     {
       id: "01",
-      icon: <Diamond className="w-8 h-8 text-blue-400" />,
-      title: "Offer Architecture",
-      description: "Positioning, High-Yield Ladders, and Market DNA.",
-      borderColor: "group-hover:border-blue-500/50"
+      icon: <Box className="w-8 h-8 text-blue-400" />,
+      title: "Product Design",
+      description: "Exactly what you sell, how we structure it, and how we price it.",
+      borderColor: "hover:border-blue-500/30"
     },
     {
       id: "02",
-      icon: <Cog className="w-8 h-8 text-emerald-400" />,
-      title: "Monetization Logic",
-      description: "LTV Optimization, Upsell Flow, and Strategic Pricing.",
-      borderColor: "group-hover:border-emerald-500/50"
+      icon: <Mail className="w-8 h-8 text-emerald-400" />,
+      title: "Funnels & Emails",
+      description: "Landing pages and automated emails that turn viewers into buyers.",
+      borderColor: "hover:border-emerald-500/30"
     },
     {
       id: "03",
-      icon: <TrendingUp className="w-8 h-8 text-amber-400" />,
-      title: "Growth Engine",
-      description: "Evergreen Conversion Funnels and Email/SMS Sync.",
-      borderColor: "group-hover:border-amber-500/50"
+      icon: <Settings className="w-8 h-8 text-amber-400" />,
+      title: "Tech & Operations",
+      description: "Customer support, billing setup, and automation—fully managed by us.",
+      borderColor: "hover:border-amber-500/30"
     },
     {
       id: "04",
-      icon: <Cpu className="w-8 h-8 text-purple-400" />,
-      title: "Operations Stack",
-      description: "Automated Fulfillment, Customer Success, Analytics.",
-      borderColor: "group-hover:border-purple-500/50"
+      icon: <BarChart2 className="w-8 h-8 text-purple-400" />,
+      title: "Data & Growth",
+      description: "Tracking metrics daily so we make decisions based on math, not guesses.",
+      borderColor: "hover:border-purple-500/30"
     }
   ];
 
@@ -36,17 +39,24 @@ export default function VltosPillars() {
     <section className="bg-[#0a0a0a] py-32 px-6 relative z-20 border-t border-white/5">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20 max-w-3xl mx-auto">
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-6">
-            No Complexity. Just Logic.
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6">
+            No complex jargon. Just results.
           </h2>
-          <p className="text-xl text-zinc-400 font-light">
-            We deploy only the architecture required to monetize attention.
+          <p className="text-lg md:text-xl text-zinc-400 font-light">
+            We deploy the exact systems required to turn your following into a compounding asset.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {pillars.map((pillar) => (
-            <div key={pillar.id} className={`glass-card bg-[#0f0f0f] border border-white/10 rounded-3xl p-8 group transition-all duration-300 ${pillar.borderColor}`}>
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              key={pillar.id}
+              className={`glass-card bg-[#0f0f0f] border border-white/10 rounded-3xl p-8 group transition-all duration-300 ${pillar.borderColor}`}
+            >
               <div className="flex justify-between items-start mb-12">
                 <div className="p-3 bg-white/5 rounded-2xl border border-white/10">
                   {pillar.icon}
@@ -61,7 +71,7 @@ export default function VltosPillars() {
               <p className="text-zinc-500 font-light text-sm leading-relaxed">
                 {pillar.description}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

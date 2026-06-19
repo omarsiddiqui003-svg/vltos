@@ -1,10 +1,13 @@
 import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+
 export const metadata: Metadata = {
-  title: 'VLTOS | The Architecture of Attention',
-  description: 'VLTOS is the invisible operating system that converts social attention into high-yield financial assets.',
+  title: 'VLTOS — We Build What Converts',
+  description: 'We turn your audience into a structured business. You focus on content, we build the business behind it.',
 }
 
 export default function RootLayout({
@@ -13,8 +16,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className="bg-[#0a0a0a] text-white antialiased">
+    <html lang="en" className="scroll-smooth">
+      <body className={`${inter.variable} font-sans bg-[#0a0a0a] text-white antialiased selection:bg-emerald-500/30 selection:text-emerald-200`}>
         <Navbar />
         {children}
       </body>

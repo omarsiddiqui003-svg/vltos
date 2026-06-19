@@ -26,10 +26,10 @@ export default function Navbar() {
   };
 
   const navLinks = [
-    { name: "Protocol", href: "#protocol" },
-    { name: "Methodology", href: "#methodology" },
-    { name: "Certifications", href: "#certifications" },
-    { name: "Apply", href: "#apply-form" },
+    { name: "What We Do", href: "#what-we-do" },
+    { name: "Who We Work With", href: "#selective" },
+    { name: "The Process", href: "#process" },
+    { name: "FAQ", href: "#faq" },
   ];
 
   return (
@@ -41,7 +41,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
         {/* Logo */}
         <div className="text-2xl font-black tracking-tighter text-white">
-          VLTOS<span className="text-amber-500">.</span>
+          VLTOS<span className="text-emerald-500">.</span>
         </div>
 
         {/* Desktop Menu */}
@@ -61,7 +61,7 @@ export default function Navbar() {
             onClick={scrollToApply}
             className="bg-white text-black px-6 py-2.5 rounded-full text-sm font-bold hover:bg-zinc-200 transition-colors"
           >
-            Secure Your Vault
+            Request a Free Audit
           </button>
         </div>
 
@@ -97,7 +97,7 @@ export default function Navbar() {
               onClick={scrollToApply}
               className="bg-white text-black px-6 py-3 rounded-full text-base font-bold text-center mt-4 w-full"
             >
-              Secure Your Vault
+              Request a Free Audit
             </button>
           </motion.div>
         )}

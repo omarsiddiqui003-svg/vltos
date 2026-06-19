@@ -1,66 +1,89 @@
-import { CheckCircle2, XCircle } from "lucide-react";
+"use client";
+
+import { motion } from "framer-motion";
+import { Check, AlertTriangle } from "lucide-react";
 
 export default function StrategicFiltering() {
+  const criteriaList = [
+    "Instagram creators with 10k-50k followers.",
+    "Personal brands, coaches, consultants, and experts.",
+    "Educators and audience-based businesses.",
+    "Those sitting on significant untapped revenue potential."
+  ];
+
   return (
-    <section className="bg-[#0a0a0a] py-32 px-6 relative z-20 overflow-hidden">
+    <section id="selective" className="bg-[#0a0a0a] py-32 px-6 relative z-20 overflow-hidden border-t border-white/5">
       <div className="max-w-6xl mx-auto">
+        
+        {/* Section Header */}
         <div className="text-center mb-20 max-w-3xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-white mb-6">
-            Selection Criteria
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 text-emerald-400 text-sm font-semibold mb-6">
+            Selective Partnerships
+          </div>
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white mb-6">
+            We are selective. Here is why.
           </h2>
-          <p className="text-xl text-zinc-400 font-light">
-            VLTOS only partners with established Creators, Founders, and Experts who value precision over hype.
+          <p className="text-lg md:text-xl text-zinc-400 font-light leading-relaxed">
+            VLTOS takes on two to three creators per quarter. Every partnership gets the full team, full attention, and a gameplan built from scratch around their specific account.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
-          {/* Elite Profile - The Green Light */}
-          <div className="glass-card bg-[#0f0f0f] border border-white/5 rounded-3xl p-10 relative overflow-hidden group hover:border-emerald-500/30 transition-colors">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-[80px] pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity" />
-            <h3 className="text-2xl font-bold text-white mb-8 border-b border-white/10 pb-4">
-              The Elite Profile
-            </h3>
-            <ul className="space-y-6">
-              <li className="flex gap-4">
-                <CheckCircle2 className="text-emerald-500 w-6 h-6 flex-shrink-0" />
-                <span className="text-zinc-300 font-light text-lg">Established Personal Brands with high-trust distribution.</span>
-              </li>
-              <li className="flex gap-4">
-                <CheckCircle2 className="text-emerald-500 w-6 h-6 flex-shrink-0" />
-                <span className="text-zinc-300 font-light text-lg">Subject Matter Experts ready to productize their knowledge.</span>
-              </li>
-              <li className="flex gap-4">
-                <CheckCircle2 className="text-emerald-500 w-6 h-6 flex-shrink-0" />
-                <span className="text-zinc-300 font-light text-lg">Consultants and Coaches seeking infrastructure, not "help."</span>
-              </li>
-              <li className="flex gap-4">
-                <CheckCircle2 className="text-emerald-500 w-6 h-6 flex-shrink-0" />
-                <span className="text-zinc-300 font-light text-lg">Media-driven brands looking for backend optimization.</span>
-              </li>
-            </ul>
-          </div>
+        {/* 2-Column Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+          
+          {/* Who we work with */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="glass-card bg-[#0f0f0f] border border-white/10 rounded-3xl p-8 md:p-10 flex flex-col justify-between hover:border-emerald-500/30 transition-all duration-500 relative group overflow-hidden"
+          >
+            {/* Ambient hover glow */}
+            <div className="absolute -top-20 -right-20 w-48 h-48 bg-emerald-500/10 rounded-full blur-[80px] pointer-events-none group-hover:bg-emerald-500/15 transition-colors duration-500" />
+            
+            <div>
+              <h3 className="text-xl font-bold text-white mb-6 pb-4 border-b border-white/5 flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" /> Who we work with
+              </h3>
+              <ul className="space-y-5">
+                {criteriaList.map((item, idx) => (
+                  <li key={idx} className="flex gap-3 items-start">
+                    <div className="w-5 h-5 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 flex-shrink-0 mt-0.5">
+                      <Check className="w-3.5 h-3.5" />
+                    </div>
+                    <span className="text-zinc-300 font-light text-base md:text-lg">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
 
-          {/* Automatic Rejections - The Red Light */}
-          <div className="glass-card bg-[#0c0c0c] border border-red-500/10 rounded-3xl p-10 relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-red-500/5 rounded-full blur-[80px] pointer-events-none opacity-50" />
-            <h3 className="text-2xl font-bold text-white/60 mb-8 border-b border-white/5 pb-4">
-              Automatic Rejections
-            </h3>
-            <ul className="space-y-6">
-              <li className="flex gap-4 opacity-70">
-                <XCircle className="text-red-500 w-6 h-6 flex-shrink-0" />
-                <span className="text-zinc-400 font-light text-lg">Audiences under 10K or unproven market demand.</span>
-              </li>
-              <li className="flex gap-4 opacity-70">
-                <XCircle className="text-red-500 w-6 h-6 flex-shrink-0" />
-                <span className="text-zinc-400 font-light text-lg">Creators seeking "get rich quick" shortcuts or passive-income myths.</span>
-              </li>
-              <li className="flex gap-4 opacity-70">
-                <XCircle className="text-red-500 w-6 h-6 flex-shrink-0" />
-                <span className="text-zinc-400 font-light text-lg">Lack of desire for long-term sustainable brand building.</span>
-              </li>
-            </ul>
-          </div>
+          {/* Who we don't work with */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="glass-card bg-[#0e0e0e] border border-white/10 rounded-3xl p-8 md:p-10 flex flex-col justify-between hover:border-red-500/20 transition-all duration-500 relative group overflow-hidden"
+          >
+            {/* Ambient hover glow */}
+            <div className="absolute -top-20 -right-20 w-48 h-48 bg-red-500/5 rounded-full blur-[80px] pointer-events-none group-hover:bg-red-500/10 transition-colors duration-500" />
+
+            <div>
+              <h3 className="text-xl font-bold text-zinc-400 mb-6 pb-4 border-b border-white/5 flex items-center gap-2">
+                <AlertTriangle className="w-4 h-4 text-red-500" /> Who we don't work with
+              </h3>
+              <p className="text-zinc-400 font-light text-base md:text-lg leading-relaxed">
+                We do not work with creators chasing shortcuts. If you want a product thrown together overnight and blasted to your audience, we are not the right fit.
+              </p>
+            </div>
+            <div className="mt-8 text-xs font-semibold text-zinc-500 tracking-wider uppercase bg-white/5 px-4 py-2 rounded-xl border border-white/5 text-center cursor-default">
+              Selective Quality Over Volume
+            </div>
+          </motion.div>
 
         </div>
       </div>
