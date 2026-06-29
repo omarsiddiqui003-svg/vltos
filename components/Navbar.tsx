@@ -41,7 +41,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
         {/* Logo */}
         <div className="text-2xl font-black tracking-tighter text-white">
-          VLTOS<span className="text-emerald-500">.</span>
+          VLTOS<span className="text-white">.</span>
         </div>
 
         {/* Desktop Menu */}

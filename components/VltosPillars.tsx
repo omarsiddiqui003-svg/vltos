@@ -7,31 +7,31 @@ export default function VltosPillars() {
   const pillars = [
     {
       id: "01",
-      icon: <Box className="w-8 h-8 text-blue-400" />,
+      icon: <Box className="w-6 h-6 text-white stroke-[1.5]" />,
       title: "Product Design",
       description: "Exactly what you sell, how we structure it, and how we price it.",
-      borderColor: "hover:border-blue-500/30"
+      borderColor: "hover:border-white/30"
     },
     {
       id: "02",
-      icon: <Mail className="w-8 h-8 text-emerald-400" />,
+      icon: <Mail className="w-6 h-6 text-white stroke-[1.5]" />,
       title: "Funnels & Emails",
       description: "Landing pages and automated emails that turn viewers into buyers.",
-      borderColor: "hover:border-emerald-500/30"
+      borderColor: "hover:border-white/30"
     },
     {
       id: "03",
-      icon: <Settings className="w-8 h-8 text-amber-400" />,
+      icon: <Settings className="w-6 h-6 text-white stroke-[1.5]" />,
       title: "Tech & Operations",
       description: "Customer support, billing setup, and automation—fully managed by us.",
-      borderColor: "hover:border-amber-500/30"
+      borderColor: "hover:border-white/30"
     },
     {
       id: "04",
-      icon: <BarChart2 className="w-8 h-8 text-purple-400" />,
+      icon: <BarChart2 className="w-6 h-6 text-white stroke-[1.5]" />,
       title: "Data & Growth",
       description: "Tracking metrics daily so we make decisions based on math, not guesses.",
-      borderColor: "hover:border-purple-500/30"
+      borderColor: "hover:border-white/30"
     }
   ];
 
@@ -39,7 +39,7 @@ export default function VltosPillars() {
     <section className="bg-[#0a0a0a] py-32 px-6 relative z-20 border-t border-white/5">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20 max-w-3xl mx-auto">
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6">
+          <h2 className="text-5xl md:text-6xl font-serif tracking-tight text-white mb-6">
             No complex jargon. Just results.
           </h2>
           <p className="text-lg md:text-xl text-zinc-400 font-light">
@@ -58,14 +58,14 @@ export default function VltosPillars() {
               className={`glass-card bg-[#0f0f0f] border border-white/10 rounded-3xl p-8 group transition-all duration-300 ${pillar.borderColor}`}
             >
               <div className="flex justify-between items-start mb-12">
-                <div className="p-3 bg-white/5 rounded-2xl border border-white/10">
+                <div className="p-4 bg-white/5 rounded-none border border-white/10">
                   {pillar.icon}
                 </div>
                 <div className="text-2xl font-black text-white/10 group-hover:text-white/20 transition-colors">
                   {pillar.id}
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">
+              <h3 className="text-xl font-serif text-white mb-3">
                 {pillar.title}
               </h3>
               <p className="text-zinc-500 font-light text-sm leading-relaxed">

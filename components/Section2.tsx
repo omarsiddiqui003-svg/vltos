@@ -27,7 +27,7 @@ export default function Section2() {
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.5 }}
-            className="inline-block mt-8 text-xl md:text-2xl font-black text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-8 py-3 rounded-full shadow-[0_0_20px_rgba(16,185,129,0.1)]"
+            className="inline-block mt-8 text-xl md:text-2xl font-serif italic text-white bg-white/5 border border-white/10 px-8 py-3 rounded-none shadow-[0_0_20px_rgba(255,255,255,0.05)]"
           >
             VLTOS exists to unlock that potential.
           </motion.div>

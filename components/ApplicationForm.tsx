@@ -45,7 +45,7 @@ export default function ApplicationForm() {
           <p className="mt-6 text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto font-light leading-relaxed">
             We will audit your account for free, no strings attached. If the numbers make sense, we build together. If they do not, you have lost nothing.
           </p>
-          <p className="text-emerald-400 font-semibold mt-4 text-base">
+          <p className="text-white font-semibold mt-4 text-base">
             Apply below. We respond within 24 hours.
           </p>
         </div>
@@ -56,7 +56,7 @@ export default function ApplicationForm() {
 
           {status === "success" ? (
             <div className="text-center py-16">
-              <div className="w-20 h-20 bg-emerald-500/10 text-emerald-400 rounded-full flex items-center justify-center mx-auto mb-6 border border-emerald-500/20 shadow-[0_0_30px_rgba(16,185,129,0.15)]">
+              <div className="w-20 h-20 bg-white/5 text-white rounded-full flex items-center justify-center mx-auto mb-6 border border-white/10 shadow-[0_0_30px_rgba(255,255,255,0.05)]">
                 <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>

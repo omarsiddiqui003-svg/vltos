@@ -26,10 +26,7 @@ function getALC(followers: number, engagement: number): number {
   return Math.min(followers * SRR * 3.0, followers * 0.85);
 }
 
-// Estimated brand-deal income (used purely for Opportunity Gap baseline)
-function getBrandDealBaseline(followers: number): number {
-  return followers * 0.03; // roughly $0.03 per follower per month × 12 = yearly
-}
+// Brand deal baseline is now a user input (monthly slider)
 
 const fmt = (val: number) =>
   new Intl.NumberFormat("en-US", {
@@ -47,6 +44,7 @@ export default function CreatorRoiCalculator() {
   const [followers,  setFollowers]  = useState(50_000);
   const [engagement, setEngagement] = useState(4);
   const [price,      setPrice]      = useState(27);
+  const [brandDeals, setBrandDeals] = useState(2_000);
 
   // ── Core calculation ────────────────────────────────────────────────────────
   const { week1Gross, week1Net, year1Net, gap } = useMemo(() => {
@@ -58,7 +56,7 @@ export default function CreatorRoiCalculator() {
     const netYear1   = netWeek1 * YEAR1_MULTIPLIER;
 
     // Opportunity Gap: Year 1 VLTOS revenue vs. a year of brand deals
-    const annualBrandDeals = getBrandDealBaseline(followers) * 12;
+    const annualBrandDeals = brandDeals * 12;
     const opportunityGap   = Math.max(0, netYear1 - annualBrandDeals);
 
     return {
@@ -67,12 +65,12 @@ export default function CreatorRoiCalculator() {
       year1Net:   Math.round(netYear1),
       gap:        Math.round(opportunityGap),
     };
-  }, [followers, engagement, price]);
+  }, [followers, engagement, price, brandDeals]);
 
   return (
     <div className="w-full max-w-4xl mx-auto mt-16 glass-card bg-[#0e0e0e]/90 border border-white/10 rounded-3xl p-6 md:p-12 relative overflow-hidden shadow-2xl">
       {/* ambient glow */}
-      <div className="absolute top-0 right-0 w-72 h-72 bg-emerald-500/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-72 h-72 bg-white/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
@@ -97,7 +95,7 @@ export default function CreatorRoiCalculator() {
               type="range" min={10_000} max={500_000} step={5_000}
               value={followers}
               onChange={(e) => setFollowers(Number(e.target.value))}
-              className="w-full h-1 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-emerald-500"
+              className="w-full h-1 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-white"
             />
             <div className="flex justify-between text-xs text-zinc-600 font-mono">
               <span>10k</span><span>250k</span><span>500k</span>
@@ -119,7 +117,7 @@ export default function CreatorRoiCalculator() {
               type="range" min={0.5} max={12} step={0.5}
               value={engagement}
               onChange={(e) => setEngagement(Number(e.target.value))}
-              className="w-full h-1 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-emerald-500"
+              className="w-full h-1 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-white"
             />
             <div className="flex justify-between text-xs text-zinc-600 font-mono">
               <span>&lt;1%</span><span>5%</span><span>12%</span>
@@ -138,10 +136,29 @@ export default function CreatorRoiCalculator() {
               type="range" min={7} max={49} step={1}
               value={price}
               onChange={(e) => setPrice(Number(e.target.value))}
-              className="w-full h-1 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-emerald-500"
+              className="w-full h-1 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-white"
             />
             <div className="flex justify-between text-xs text-zinc-600 font-mono">
               <span>$7</span><span>$28</span><span>$49</span>
+            </div>
+          </div>
+
+          {/* Monthly Brand Deal Income */}
+          <div className="space-y-3">
+            <div className="flex justify-between text-sm font-medium">
+              <span className="text-zinc-400">Monthly Brand Deal Income</span>
+              <span className="text-white font-mono bg-white/5 px-2.5 py-0.5 rounded-md border border-white/10">
+                {fmt(brandDeals)}/mo
+              </span>
+            </div>
+            <input
+              type="range" min={0} max={20_000} step={500}
+              value={brandDeals}
+              onChange={(e) => setBrandDeals(Number(e.target.value))}
+              className="w-full h-1 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-white"
+            />
+            <div className="flex justify-between text-xs text-zinc-600 font-mono">
+              <span>$0</span><span>$10k</span><span>$20k</span>
             </div>
           </div>
         </div>
@@ -179,10 +196,10 @@ export default function CreatorRoiCalculator() {
           <motion.div
             initial={{ opacity: 0.7 }}
             animate={{ opacity: 1 }}
-            className="bg-emerald-500/10 border border-emerald-500/20 rounded-2xl p-6 text-center relative overflow-hidden shadow-lg shadow-emerald-500/5 flex-1 flex flex-col items-center justify-center"
+            className="bg-white/5 border border-white/20 rounded-2xl p-6 text-center relative overflow-hidden shadow-lg shadow-white/5 flex-1 flex flex-col items-center justify-center"
           >
-            <div className="absolute top-0 right-0 w-20 h-20 bg-emerald-500/20 rounded-full blur-2xl pointer-events-none" />
-            <span className="text-[10px] uppercase tracking-widest text-emerald-400 font-bold block mb-1">
+            <div className="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full blur-2xl pointer-events-none" />
+            <span className="text-[10px] uppercase tracking-widest text-zinc-300 font-bold block mb-1">
               Opportunity Gap vs. Brand Deals
             </span>
             <span className="text-3xl md:text-4xl font-extrabold text-white font-mono tracking-tight">

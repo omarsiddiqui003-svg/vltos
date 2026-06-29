@@ -5,9 +5,9 @@ import { Check, AlertTriangle } from "lucide-react";
 
 export default function StrategicFiltering() {
   const criteriaList = [
-    "Instagram creators with 10k-50k followers.",
+    "We partner exclusively with Instagram creators at the moment.",
+    "Must have an engaged following of 10k+ followers.",
     "Personal brands, coaches, consultants, and experts.",
-    "Educators and audience-based businesses.",
     "Those sitting on significant untapped revenue potential."
   ];
 
@@ -17,7 +17,7 @@ export default function StrategicFiltering() {
         
         {/* Section Header */}
         <div className="text-center mb-20 max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 text-emerald-400 text-sm font-semibold mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-white text-sm font-semibold mb-6">
             Selective Partnerships
           </div>
           <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white mb-6">
@@ -37,19 +37,19 @@ export default function StrategicFiltering() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="glass-card bg-[#0f0f0f] border border-white/10 rounded-3xl p-8 md:p-10 flex flex-col justify-between hover:border-emerald-500/30 transition-all duration-500 relative group overflow-hidden"
+            className="glass-card bg-[#0f0f0f] border border-white/10 rounded-3xl p-8 md:p-10 flex flex-col justify-between hover:border-white/20 transition-all duration-500 relative group overflow-hidden"
           >
             {/* Ambient hover glow */}
-            <div className="absolute -top-20 -right-20 w-48 h-48 bg-emerald-500/10 rounded-full blur-[80px] pointer-events-none group-hover:bg-emerald-500/15 transition-colors duration-500" />
+            <div className="absolute -top-20 -right-20 w-48 h-48 bg-white/5 rounded-full blur-[80px] pointer-events-none group-hover:bg-white/10 transition-colors duration-500" />
             
             <div>
               <h3 className="text-xl font-bold text-white mb-6 pb-4 border-b border-white/5 flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" /> Who we work with
+                <span className="w-2.5 h-2.5 rounded-full bg-white" /> Who we work with
               </h3>
               <ul className="space-y-5">
                 {criteriaList.map((item, idx) => (
                   <li key={idx} className="flex gap-3 items-start">
-                    <div className="w-5 h-5 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 flex-shrink-0 mt-0.5">
+                    <div className="w-5 h-5 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white flex-shrink-0 mt-0.5">
                       <Check className="w-3.5 h-3.5" />
                     </div>
                     <span className="text-zinc-300 font-light text-base md:text-lg">

@@ -12,7 +12,7 @@ export default function DashboardPreview() {
       label: "Monthly Revenue",
       value: "$18,450",
       change: "+24.8%",
-      icon: <TrendingUp className="w-5 h-5 text-emerald-400" />,
+      icon: <TrendingUp className="w-5 h-5 text-white" />,
     },
     {
       label: "Conversion Rate",
@@ -45,8 +45,8 @@ export default function DashboardPreview() {
           <div className="w-3 h-3 rounded-full bg-green-500/50" />
           <span className="text-xs text-zinc-500 font-mono ml-4 uppercase tracking-widest">VLTOS Engine v1.0.4</span>
         </div>
-        <div className="flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full text-[10px] text-emerald-400 font-bold uppercase tracking-wider">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" /> Live Status
+        <div className="flex items-center gap-1.5 bg-white/5 border border-white/10 px-3 py-1 rounded-full text-[10px] text-white font-bold uppercase tracking-wider">
+          <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" /> Live Status
         </div>
       </div>
 
@@ -61,7 +61,7 @@ export default function DashboardPreview() {
               </div>
               <div>
                 <span className="text-xl font-bold text-white font-mono block">{m.value}</span>
-                <span className="text-[10px] text-emerald-400 font-medium font-mono">{m.change}</span>
+                <span className="text-[10px] text-white font-medium font-mono">{m.change}</span>
               </div>
             </div>
           ))}
@@ -126,8 +126,8 @@ export default function DashboardPreview() {
                   <svg className="w-full h-full" viewBox="0 0 500 100" preserveAspectRatio="none">
                     <defs>
                       <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor="#10b981" stopOpacity="0.2" />
-                        <stop offset="100%" stopColor="#10b981" stopOpacity="0" />
+                        <stop offset="0%" stopColor="#ffffff" stopOpacity="0.1" />
+                        <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
                       </linearGradient>
                     </defs>
                     {/* Shadow Area under the line */}
@@ -139,7 +139,7 @@ export default function DashboardPreview() {
                     <motion.path
                       d="M0 80 Q100 70 200 45 T400 15 L500 10"
                       fill="none"
-                      stroke="#10b981"
+                      stroke="#ffffff"
                       strokeWidth="2"
                       initial={{ pathLength: 0 }}
                       animate={{ pathLength: 1 }}
@@ -171,7 +171,7 @@ export default function DashboardPreview() {
                       <span className="text-white font-mono">14,205 clicks (100%)</span>
                     </div>
                     <div className="w-full bg-white/5 h-2.5 rounded-full overflow-hidden">
-                      <div className="bg-emerald-500 h-full w-full" />
+                      <div className="bg-white h-full w-full" />
                     </div>
                   </div>
                   
@@ -181,7 +181,7 @@ export default function DashboardPreview() {
                       <span className="text-white font-mono">2,840 visits (20%)</span>
                     </div>
                     <div className="w-full bg-white/5 h-2.5 rounded-full overflow-hidden">
-                      <div className="bg-emerald-500 h-full w-[20%]" />
+                      <div className="bg-white h-full w-[20%]" />
                     </div>
                   </div>
 
@@ -191,7 +191,7 @@ export default function DashboardPreview() {
                       <span className="text-white font-mono">596 purchases (4.2%)</span>
                     </div>
                     <div className="w-full bg-white/5 h-2.5 rounded-full overflow-hidden">
-                      <div className="bg-emerald-500 h-full w-[4.2%]" />
+                      <div className="bg-white h-full w-[4.2%]" />
                     </div>
                   </div>
                 </div>
@@ -211,7 +211,7 @@ export default function DashboardPreview() {
                 <div className="space-y-2.5">
                   <div className="flex justify-between items-center bg-black/40 border border-white/5 rounded-xl p-3">
                     <div className="flex items-center gap-3">
-                      <div className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-white" />
                       <span className="text-sm font-semibold text-white">1-on-1 Advisory Protocol</span>
                     </div>
                     <span className="text-xs text-zinc-500 font-mono font-medium">$1,500</span>
@@ -219,7 +219,7 @@ export default function DashboardPreview() {
 
                   <div className="flex justify-between items-center bg-black/40 border border-white/5 rounded-xl p-3">
                     <div className="flex items-center gap-3">
-                      <div className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-white" />
                       <span className="text-sm font-semibold text-white">Digital Productization Suite</span>
                     </div>
                     <span className="text-xs text-zinc-500 font-mono font-medium">$299</span>
@@ -227,7 +227,7 @@ export default function DashboardPreview() {
 
                   <div className="flex justify-between items-center bg-black/40 border border-white/5 rounded-xl p-3">
                     <div className="flex items-center gap-3">
-                      <div className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-white" />
                       <span className="text-sm font-semibold text-white">Private Circle Membership</span>
                     </div>
                     <span className="text-xs text-zinc-500 font-mono font-medium">$99/mo</span>
@@ -235,7 +235,7 @@ export default function DashboardPreview() {
 
                   <div className="flex justify-between items-center bg-black/40 border border-white/5 rounded-xl p-3">
                     <div className="flex items-center gap-3">
-                      <div className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-white" />
                       <span className="text-sm font-semibold text-white">Asset Optimization Vault</span>
                     </div>
                     <span className="text-xs text-zinc-500 font-mono font-medium">$499</span>

@@ -53,7 +53,7 @@ export default function Home() {
               href="https://instagram.com/vltos.io" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="hover:text-emerald-400 transition-colors"
+              className="hover:text-white transition-colors"
             >
               Instagram: @vltos.io
             </a>

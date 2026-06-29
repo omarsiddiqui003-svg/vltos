@@ -9,37 +9,29 @@ export default function Accelerator() {
       id: "01",
       label: "Research & Strategy",
       description: "Phases 1-3. Deep analysis of audience behaviour, market demand, and revenue opportunities. We map proven demand and engineer the product strategy before anything is built.",
-      icon: <Search size={24} />,
-      color: "blue",
-      glowColor: "rgba(59, 130, 246, 0.3)",
-      iconStyle: "bg-blue-500/10 border border-blue-500/20 text-blue-400 group-hover:bg-blue-500/20 shadow-[0_0_30px_rgba(59,130,246,0.15)] group-hover:shadow-[0_0_40px_rgba(59,130,246,0.3)]"
+      icon: <Search size={20} strokeWidth={1.5} />,
+      iconStyle: "bg-zinc-900 border border-zinc-800 text-zinc-300 group-hover:bg-white group-hover:text-black"
     },
     {
       id: "02",
       label: "Validation & Development",
       description: "Phases 4-6. We validate demand to confirm product-market fit, then build the product framework, curriculum, and scalable backend infrastructure required to support growth.",
-      icon: <Compass size={24} />,
-      color: "purple",
-      glowColor: "rgba(168, 85, 247, 0.3)",
-      iconStyle: "bg-purple-500/10 border border-purple-500/20 text-purple-400 group-hover:bg-purple-500/20 shadow-[0_0_30px_rgba(168,85,247,0.15)] group-hover:shadow-[0_0_40px_rgba(168,85,247,0.3)]"
+      icon: <Compass size={20} strokeWidth={1.5} />,
+      iconStyle: "bg-zinc-900 border border-zinc-800 text-zinc-300 group-hover:bg-white group-hover:text-black"
     },
     {
       id: "03",
       label: "Launch Engineering",
       description: "Phases 7-9. We execute a structured pre-launch warm-up to build desire. Unlike standard launches, we launch on Day 6 to generate revenue early while maintaining momentum.",
-      icon: <Rocket size={24} />,
-      color: "emerald",
-      glowColor: "rgba(16, 185, 129, 0.3)",
-      iconStyle: "bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 group-hover:bg-emerald-500/20 shadow-[0_0_30px_rgba(16,185,129,0.15)] group-hover:shadow-[0_0_40px_rgba(16,185,129,0.3)]"
+      icon: <Rocket size={20} strokeWidth={1.5} />,
+      iconStyle: "bg-zinc-900 border border-zinc-800 text-zinc-300 group-hover:bg-white group-hover:text-black"
     },
     {
       id: "04",
       label: "Optimisation & Growth",
       description: "Phases 10-12. Continuous post-launch analysis. We identify what messaging resonated, expand customer lifetime value, and transform the launch into a scalable digital business.",
-      icon: <TrendingUp size={24} />,
-      color: "amber",
-      glowColor: "rgba(245, 158, 11, 0.3)",
-      iconStyle: "bg-amber-500/10 border border-amber-500/20 text-amber-400 group-hover:bg-amber-500/20 shadow-[0_0_30px_rgba(245,158,11,0.15)] group-hover:shadow-[0_0_40px_rgba(245,158,11,0.3)]"
+      icon: <TrendingUp size={20} strokeWidth={1.5} />,
+      iconStyle: "bg-zinc-900 border border-zinc-800 text-zinc-300 group-hover:bg-white group-hover:text-black"
     }
   ];
 
@@ -73,7 +65,7 @@ export default function Accelerator() {
               className="relative z-10 glass-card bg-[#0f0f0f] border border-white/10 rounded-3xl p-8 flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-500"
             >
               {/* Icon Container */}
-              <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-500 ${step.glowColor ? "" : ""} ${step.iconStyle}`}>
+              <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-500 ${step.iconStyle}`}>
                 {step.icon}
               </div>
 

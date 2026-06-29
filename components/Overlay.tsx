@@ -40,11 +40,11 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
           <p className="mt-8 text-lg md:text-2xl text-white/70 font-light tracking-wide max-w-3xl">
             VLTOS is the invisible operating system that converts social attention into high-yield financial assets.
           </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-4 text-sm font-medium text-emerald-400">
-            <span className="bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full">Performance-Aligned Equity</span>
-            <span className="bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full">Infrastructure-First</span>
-            <span className="bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full">Zero Friction</span>
-            <span className="bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full">Full IP Ownership</span>
+          <div className="mt-6 flex flex-wrap justify-center gap-4 text-sm font-medium text-white">
+            <span className="bg-white/5 border border-white/10 px-3 py-1 rounded-full">Performance-Aligned Equity</span>
+            <span className="bg-white/5 border border-white/10 px-3 py-1 rounded-full">Infrastructure-First</span>
+            <span className="bg-white/5 border border-white/10 px-3 py-1 rounded-full">Zero Friction</span>
+            <span className="bg-white/5 border border-white/10 px-3 py-1 rounded-full">Full IP Ownership</span>
           </div>
           <button 
             onClick={scrollToApply}

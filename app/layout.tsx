@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Playfair_Display } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair' })
 
 export const metadata: Metadata = {
-  title: 'VLTOS — We Build What Converts',
-  description: 'We turn your audience into a structured business. You focus on content, we build the business behind it.',
+  title: 'VLTOS | Digital Product Agency',
+  description: 'We build the infrastructure, systems, and product strategy to transform your influence into a scalable digital asset.',
 }
 
 export default function RootLayout({
@@ -17,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} font-sans bg-[#0a0a0a] text-white antialiased selection:bg-emerald-500/30 selection:text-emerald-200`}>
+      <body className={`${inter.variable} ${playfair.variable} antialiased bg-[#050505] text-zinc-200 selection:bg-white selection:text-black`}>
         <Navbar />
         {children}
       </body>

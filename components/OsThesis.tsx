@@ -26,12 +26,12 @@ export default function OsThesis() {
               transition={{ duration: 0.8 }}
               className="space-y-6"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-500/20 bg-blue-500/10 text-blue-400 text-sm font-semibold mb-2">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/5 text-zinc-300 text-sm font-medium tracking-widest uppercase mb-2">
                 The Partner Model
               </div>
-              <h2 className="text-4xl md:text-6xl font-black tracking-tight text-white leading-tight">
+              <h2 className="text-5xl md:text-6xl font-serif tracking-tight text-white leading-tight">
                 You are the face.<br />
-                <span className="text-zinc-500">We run the engine.</span>
+                <span className="text-zinc-500 italic font-light">We run the engine.</span>
               </h2>
               <p className="text-lg md:text-xl text-zinc-400 font-light leading-relaxed">
                 You already do the hard part. You show up, you create, you build trust. VLTOS handles everything that comes after. Product design. Sales pages. Launch strategy. Payment processing. Analytics. All of it.
@@ -45,7 +45,7 @@ export default function OsThesis() {
                 <p className="text-sm text-zinc-400 font-light">You keep 70% of every sale. We earn the other 30% only when you do.</p>
               </div>
               <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
-                <span className="text-2xl font-bold text-emerald-400 block mb-1">Zero Risk</span>
+                <span className="text-2xl font-serif text-white block mb-1">Zero Risk</span>
                 <p className="text-sm text-zinc-400 font-light">There is no retainer. No upfront fee. No risk on your end.</p>
               </div>
             </div>
@@ -56,7 +56,7 @@ export default function OsThesis() {
               <ul className="space-y-4">
                 {whatWeDoList.map((item, idx) => (
                   <li key={idx} className="flex gap-4 items-start">
-                    <div className="w-6 h-6 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 flex-shrink-0 mt-0.5">
+                    <div className="w-6 h-6 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white flex-shrink-0 mt-0.5">
                       <Check className="w-3.5 h-3.5" />
                     </div>
                     <span className="text-zinc-300 font-light text-base md:text-lg leading-relaxed">
