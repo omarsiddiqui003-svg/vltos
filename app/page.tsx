@@ -1,54 +1,46 @@
 import Hero from "@/components/Hero";
 import Section2 from "@/components/Section2";
-import OsThesis from "@/components/OsThesis";
-import StrategicFiltering from "@/components/StrategicFiltering";
-import OpportunityGap from "@/components/OpportunityGap";
-import VltosPillars from "@/components/VltosPillars";
-import Accelerator from "@/components/Accelerator";
-import Offer from "@/components/Offer";
+import CreatorRoiCalculator from "@/components/CreatorRoiCalculator";
+import TheAgreement from "@/components/TheAgreement";
+import WhatWeDo from "@/components/WhatWeDo";
+import WhoWeWorkWith from "@/components/WhoWeWorkWith";
 import VaultFAQ from "@/components/VaultFAQ";
 import ApplicationForm from "@/components/ApplicationForm";
 
 export default function Home() {
   return (
-    <main className="bg-[#0a0a0a] min-h-screen text-white selection:bg-white/30 font-sans antialiased overflow-x-hidden">
+    <main className="bg-black min-h-screen text-white selection:bg-white selection:text-black font-sans antialiased overflow-x-hidden">
       {/* 1. Hero Section */}
       <Hero />
 
-      {/* 2. Section 2: Blunt monetization problem hook */}
+      {/* 2. The Single Problem */}
       <Section2 />
 
-      {/* 3. Section 3: The Partner Thesis (with Dashboard mockup) */}
-      <OsThesis />
+      {/* 3. The Revenue Estimator */}
+      <CreatorRoiCalculator />
 
-      {/* 4. Section 4: Who We Work With (Selection Criteria) */}
-      <StrategicFiltering />
+      {/* 4. The Deal */}
+      <TheAgreement />
 
-      {/* 5. Section 5: The Problem (with ROI Calculator) */}
-      <OpportunityGap />
+      {/* 5. What We Actually Do */}
+      <WhatWeDo />
 
-      {/* 6. Section 6: Deliverables Pillars */}
-      <VltosPillars />
+      {/* 6. Who This Is For */}
+      <WhoWeWorkWith />
 
-      {/* 7. Section 7: The Process */}
-      <Accelerator />
-
-      {/* 8. Section 8: The Terms */}
-      <Offer />
-
-      {/* 9. Section 9: Common Questions FAQ */}
+      {/* 7. FAQ */}
       <VaultFAQ />
 
-      {/* 10. Section 10: Apply Form */}
+      {/* 8. The Form */}
       <ApplicationForm />
       
       {/* Footer */}
-      <footer className="py-12 border-t border-white/5 text-center relative z-20 bg-[#0a0a0a]">
-        <div className="max-w-4xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="text-zinc-500 text-sm font-light">
-            © {new Date().getFullYear()} VLTOS. All rights reserved.
+      <footer className="py-16 border-t border-white/10 text-center bg-black">
+        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="text-zinc-500 text-xs tracking-wider uppercase font-light">
+            © 2026 VLTOS
           </div>
-          <div className="flex gap-8 text-sm font-medium text-zinc-400">
+          <div className="flex gap-8 text-xs uppercase tracking-widest text-zinc-400">
             <a 
               href="https://instagram.com/vltos.io" 
               target="_blank" 
@@ -57,10 +49,6 @@ export default function Home() {
             >
               Instagram: @vltos.io
             </a>
-            <span className="text-zinc-600 font-light select-none">|</span>
-            <span className="text-zinc-500 font-light">
-              Built on <a href="https://whop.com" target="_blank" rel="noopener noreferrer" className="hover:text-white font-semibold transition-colors">Whop</a>
-            </span>
           </div>
         </div>
       </footer>

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
@@ -10,7 +9,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -18,40 +17,41 @@ export default function Navbar() {
 
   const scrollToApply = (e: React.MouseEvent) => {
     e.preventDefault();
-    const el = document.getElementById('apply-form');
+    const el = document.getElementById("apply-form");
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      el.scrollIntoView({ behavior: "smooth" });
       setMobileMenuOpen(false);
     }
   };
 
   const navLinks = [
+    { name: "The Problem", href: "#problem" },
+    { name: "Estimator", href: "#estimator" },
+    { name: "The Agreement", href: "#deal" },
     { name: "What We Do", href: "#what-we-do" },
-    { name: "Who We Work With", href: "#selective" },
-    { name: "The Process", href: "#process" },
     { name: "FAQ", href: "#faq" },
   ];
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-black/80 backdrop-blur-md border-b border-white/10 py-4" : "bg-transparent py-6"
+        isScrolled ? "bg-black border-b border-white/10 py-4" : "bg-transparent py-6"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <div className="text-2xl font-black tracking-tighter text-white">
-          VLTOS<span className="text-white">.</span>
+        <div className="text-xl font-bold tracking-[0.2em] text-white">
+          VLTOS
         </div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-white/70 hover:text-white transition-colors"
+                className="text-xs uppercase tracking-widest text-zinc-400 hover:text-white transition-colors"
               >
                 {link.name}
               </a>
@@ -59,49 +59,43 @@ export default function Navbar() {
           </div>
           <button
             onClick={scrollToApply}
-            className="bg-white text-black px-6 py-2.5 rounded-full text-sm font-bold hover:bg-zinc-200 transition-colors"
+            className="bg-white text-black px-6 py-2.5 rounded-none text-xs uppercase tracking-widest font-medium hover:bg-zinc-200 transition-colors cursor-pointer"
           >
-            Request a Free Audit
+            Apply Now
           </button>
         </div>
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden text-white"
+          className="md:hidden text-white cursor-pointer"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle menu"
         >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
       {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="md:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-xl border-b border-white/10 p-6 flex flex-col gap-6"
-          >
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-lg font-medium text-white/80 hover:text-white"
-              >
-                {link.name}
-              </a>
-            ))}
-            <button
-              onClick={scrollToApply}
-              className="bg-white text-black px-6 py-3 rounded-full text-base font-bold text-center mt-4 w-full"
+      {mobileMenuOpen && (
+        <div className="md:hidden absolute top-full left-0 right-0 bg-black border-b border-white/10 p-6 flex flex-col gap-4">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-xs uppercase tracking-widest text-zinc-400 hover:text-white py-2 block"
             >
-              Request a Free Audit
-            </button>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              {link.name}
+            </a>
+          ))}
+          <button
+            onClick={scrollToApply}
+            className="bg-white text-black px-6 py-3 rounded-none text-xs uppercase tracking-widest font-medium text-center mt-2 w-full cursor-pointer"
+          >
+            Apply Now
+          </button>
+        </div>
+      )}
     </nav>
   );
 }

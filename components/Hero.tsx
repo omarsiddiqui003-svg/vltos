@@ -1,46 +1,40 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 
 export default function Hero() {
-  const scrollToApply = () => {
-    const el = document.getElementById("apply-form");
+  const scrollToEstimator = () => {
+    const el = document.getElementById("estimator");
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden bg-[#050505] pt-24 pb-16">
-      {/* Ultra Subtle Radial Light */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80vw] h-[50vw] bg-white/[0.02] rounded-[100%] blur-[120px]" />
-      </div>
-
-      <div className="relative z-10 container mx-auto px-6 text-center">
-        <div
-          className="mx-auto flex flex-col items-center justify-center p-8 md:p-16 max-w-5xl relative"
-        >
-          {/* Logo Brand Title */}
-          <div className="text-xs tracking-[0.3em] text-zinc-500 uppercase mb-8 border-b border-zinc-800 pb-2">
-            VLTOS — Digital Product Agency
-          </div>
-
-          <h1 className="text-5xl md:text-7xl lg:text-[6.5rem] font-serif tracking-tight leading-[1.05] text-white">
-            Content is distribution.<br className="hidden md:block" />
-            <span className="text-zinc-500 italic font-light">We build the business.</span>
-          </h1>
-
-          <p className="mt-10 text-lg md:text-xl text-zinc-400 font-light tracking-wide max-w-2xl leading-relaxed">
-            Partnering exclusively with Instagram creators with 10k+ followers. We build the infrastructure, systems, and product strategy to transform your influence into a scalable digital asset.
-          </p>
-
-          <button
-            onClick={scrollToApply}
-            className="mt-14 group flex items-center gap-4 bg-white text-black px-10 py-5 rounded-none font-sans font-medium uppercase tracking-widest text-sm hover:bg-zinc-200 transition-colors cursor-pointer"
-          >
-            Request a Free Audit
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </button>
+    <section className="relative min-h-screen flex flex-col justify-center items-center bg-black pt-24 pb-16">
+      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+        {/* Brand Name */}
+        <div className="text-sm tracking-[0.4em] text-white uppercase mb-12">
+          VLTOS
         </div>
+
+        {/* Headline */}
+        <h1 className="text-4xl md:text-6xl lg:text-[4.75rem] tracking-tight leading-[1.1] text-white font-serif font-light mb-8">
+          Your audience is worth more than brand deals.<br />
+          <span className="text-zinc-500 italic font-light">We prove it. Then we build the product that pays you.</span>
+        </h1>
+
+        {/* Subtitle */}
+        <p className="mt-8 text-sm md:text-base text-zinc-400 uppercase tracking-[0.2em] max-w-xl mx-auto leading-relaxed">
+          70% yours. 0% upfront. Done for you end to end.
+        </p>
+
+        {/* CTA */}
+        <button
+          onClick={scrollToEstimator}
+          className="mt-16 group inline-flex items-center gap-3 bg-white text-black px-8 py-4 rounded-none font-sans font-medium uppercase tracking-[0.15em] text-xs hover:bg-zinc-200 transition-colors cursor-pointer"
+        >
+          See what your audience is worth
+          <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
+        </button>
       </div>
     </section>
   );

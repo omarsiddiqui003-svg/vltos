@@ -2,73 +2,69 @@
 
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 
 export default function VaultFAQ() {
   const faqs = [
     {
-      question: "Will this change how my content feels to my audience?",
-      answer: "No. We operate in the background. The products carry your voice, your style, and your name. Your audience relationship stays entirely yours."
+      question: "Do I pay anything upfront?",
+      answer: "No. Zero. VLTOS earns 30% of what the launch generates. If nothing sells, we receive nothing."
     },
     {
-      question: "How fast does this actually move?",
-      answer: "Every partnership to date has launched within 11 days of agreement and generated revenue within its first cycle."
+      question: "Who owns the product?",
+      answer: "You do. Completely. VLTOS has no claim to your product, your content, or your audience."
     },
     {
-      question: "Do I need to do a lot of extra work?",
-      answer: "Around six to eight hours per month on top of your regular content. We give you templates, scripts, and a content calendar. You film and post. We handle everything else."
+      question: "How long does it take?",
+      answer: "3 to 5 weeks from agreement to launch day."
     },
     {
-      question: "What if a product makes no money?",
-      answer: "Then we make no money either. That is the model."
+      question: "What if the launch underperforms?",
+      answer: "You've lost nothing — you paid nothing. The product stays live and continues to sell. We analyse and adjust."
+    },
+    {
+      question: "Will this change how my content feels?",
+      answer: "No. We operate in the background to script and structure your product launch. The product carries your voice, and your brand remains completely yours."
+    },
+    {
+      question: "How much work is required from me?",
+      answer: "We ask for 6 days of Instagram Stories during the launch. We script everything, you just film and post."
     }
   ];
 
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="bg-[#0a0a0a] py-32 px-6 relative z-20 border-t border-white/5">
+    <section id="faq" className="bg-black py-28 px-6 border-t border-white/10">
       <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/5 text-white/70 text-sm font-semibold mb-6">
-            FAQ
-          </div>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white">
-            Common Questions
-          </h2>
-        </div>
+        <h2 className="text-3xl md:text-5xl font-serif font-light text-white mb-16 text-left">
+          Common Questions
+        </h2>
 
         <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <div 
-              key={index} 
-              className="glass-card bg-[#0f0f0f] border border-white/10 rounded-2xl overflow-hidden cursor-pointer hover:border-white/20 transition-colors"
-              onClick={() => setOpenIndex(openIndex === index ? null : index)}
-            >
-              <div className="p-6 flex justify-between items-center text-white select-none">
-                <span className="font-bold text-base md:text-lg pr-4">{faq.question}</span>
-                {openIndex === index ? (
-                  <Minus className="text-zinc-400 w-5 h-5 flex-shrink-0" />
-                ) : (
-                  <Plus className="text-zinc-400 w-5 h-5 flex-shrink-0" />
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index;
+            return (
+              <div 
+                key={index} 
+                className="border border-white/10 p-6 cursor-pointer hover:border-white/20 transition-colors bg-black"
+                onClick={() => setOpenIndex(isOpen ? null : index)}
+              >
+                <div className="flex justify-between items-center text-white select-none">
+                  <span className="font-semibold text-sm md:text-base pr-4 uppercase tracking-wider">{faq.question}</span>
+                  {isOpen ? (
+                    <Minus className="text-zinc-400 w-4 h-4 flex-shrink-0" />
+                  ) : (
+                    <Plus className="text-zinc-400 w-4 h-4 flex-shrink-0" />
+                  )}
+                </div>
+                {isOpen && (
+                  <div className="mt-4 pt-4 border-t border-white/5 text-zinc-400 font-light text-xs md:text-sm leading-relaxed">
+                    {faq.answer}
+                  </div>
                 )}
               </div>
-              <AnimatePresence>
-                {openIndex === index && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="px-6 pb-6 text-zinc-400 font-light text-sm md:text-base leading-relaxed border-t border-white/5 pt-4">
-                      {faq.answer}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

@@ -1,37 +1,16 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 export default function Section2() {
   return (
-    <section className="bg-[#0a0a0a] py-32 px-6 relative z-20 border-t border-white/5 overflow-hidden">
-      <div className="max-w-4xl mx-auto text-center relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
-          className="space-y-6"
-        >
-          <p className="text-2xl md:text-4xl text-zinc-500 font-light leading-relaxed">
-            Most creators and personal brands spend years building an audience, earning trust, and creating content.
-          </p>
-          <p className="text-2xl md:text-4xl text-zinc-300 font-light leading-relaxed">
-            But very few have the infrastructure, product strategy, and conversion mechanisms required to monetise that audience.
-          </p>
-          <p className="text-3xl md:text-5xl font-bold text-white leading-tight">
-            As a result, many are sitting on significant untapped revenue potential.
-          </p>
-          <motion.div
-            initial={{ scale: 0.95, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            className="inline-block mt-8 text-xl md:text-2xl font-serif italic text-white bg-white/5 border border-white/10 px-8 py-3 rounded-none shadow-[0_0_20px_rgba(255,255,255,0.05)]"
-          >
-            VLTOS exists to unlock that potential.
-          </motion.div>
-        </motion.div>
+    <section id="problem" className="bg-black py-28 px-6 border-t border-white/10">
+      <div className="max-w-3xl mx-auto text-left space-y-8 font-light text-zinc-400">
+        <p className="text-xl md:text-2xl leading-relaxed text-white">
+          Most creators with 10,000 to 100,000 followers are making almost nothing from their audiences.
+        </p>
+        <p className="text-xl md:text-2xl leading-relaxed">
+          Not because the audience isn't valuable. Because nobody built them the infrastructure to monetise it.
+        </p>
+        <p className="text-xl md:text-2xl leading-relaxed text-white font-serif italic">
+          That is what VLTOS does.
+        </p>
       </div>
     </section>
   );

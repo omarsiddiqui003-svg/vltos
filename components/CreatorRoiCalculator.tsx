@@ -68,150 +68,132 @@ export default function CreatorRoiCalculator() {
   }, [followers, engagement, price, brandDeals]);
 
   return (
-    <div className="w-full max-w-4xl mx-auto mt-16 glass-card bg-[#0e0e0e]/90 border border-white/10 rounded-3xl p-6 md:p-12 relative overflow-hidden shadow-2xl">
-      {/* ambient glow */}
-      <div className="absolute top-0 right-0 w-72 h-72 bg-white/5 rounded-full blur-[100px] pointer-events-none" />
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-
-        {/* ── LEFT: Inputs ─────────────────────────────────────────────────── */}
-        <div className="space-y-8">
-          <div>
-            <h3 className="text-xl font-bold text-white mb-1">Revenue Estimator</h3>
-            <p className="text-zinc-500 text-sm font-light">
-              Slide your numbers to see what a structured product launch could generate.
-            </p>
-          </div>
-
-          {/* Follower Count */}
-          <div className="space-y-3">
-            <div className="flex justify-between text-sm font-medium">
-              <span className="text-zinc-400">Instagram Followers</span>
-              <span className="text-white font-mono bg-white/5 px-2.5 py-0.5 rounded-md border border-white/10">
-                {fmtFollowers(followers)}
-              </span>
-            </div>
-            <input
-              type="range" min={10_000} max={500_000} step={5_000}
-              value={followers}
-              onChange={(e) => setFollowers(Number(e.target.value))}
-              className="w-full h-1 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-white"
-            />
-            <div className="flex justify-between text-xs text-zinc-600 font-mono">
-              <span>10k</span><span>250k</span><span>500k</span>
-            </div>
-          </div>
-
-          {/* Engagement Rate */}
-          <div className="space-y-3">
-            <div className="flex justify-between text-sm font-medium">
-              <span className="text-zinc-400">Engagement Rate</span>
-              <span className="text-white font-mono bg-white/5 px-2.5 py-0.5 rounded-md border border-white/10">
-                {engagement}%
-                <span className="text-zinc-500 text-[10px] ml-1">
-                  SRR {getSRR(engagement).toFixed(2)}
-                </span>
-              </span>
-            </div>
-            <input
-              type="range" min={0.5} max={12} step={0.5}
-              value={engagement}
-              onChange={(e) => setEngagement(Number(e.target.value))}
-              className="w-full h-1 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-white"
-            />
-            <div className="flex justify-between text-xs text-zinc-600 font-mono">
-              <span>&lt;1%</span><span>5%</span><span>12%</span>
-            </div>
-          </div>
-
-          {/* Product Price */}
-          <div className="space-y-3">
-            <div className="flex justify-between text-sm font-medium">
-              <span className="text-zinc-400">Product Price Point</span>
-              <span className="text-white font-mono bg-white/5 px-2.5 py-0.5 rounded-md border border-white/10">
-                ${price}
-              </span>
-            </div>
-            <input
-              type="range" min={7} max={49} step={1}
-              value={price}
-              onChange={(e) => setPrice(Number(e.target.value))}
-              className="w-full h-1 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-white"
-            />
-            <div className="flex justify-between text-xs text-zinc-600 font-mono">
-              <span>$7</span><span>$28</span><span>$49</span>
-            </div>
-          </div>
-
-          {/* Monthly Brand Deal Income */}
-          <div className="space-y-3">
-            <div className="flex justify-between text-sm font-medium">
-              <span className="text-zinc-400">Monthly Brand Deal Income</span>
-              <span className="text-white font-mono bg-white/5 px-2.5 py-0.5 rounded-md border border-white/10">
-                {fmt(brandDeals)}/mo
-              </span>
-            </div>
-            <input
-              type="range" min={0} max={20_000} step={500}
-              value={brandDeals}
-              onChange={(e) => setBrandDeals(Number(e.target.value))}
-              className="w-full h-1 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-white"
-            />
-            <div className="flex justify-between text-xs text-zinc-600 font-mono">
-              <span>$0</span><span>$10k</span><span>$20k</span>
-            </div>
-          </div>
+    <section id="estimator" className="bg-black py-28 px-6 border-t border-white/10">
+      <div className="max-w-4xl mx-auto">
+        <div className="text-left mb-16">
+          <h2 className="text-3xl md:text-5xl font-serif font-light text-white mb-4">
+            What is your audience actually worth?
+          </h2>
+          <p className="text-zinc-500 text-sm md:text-base font-light max-w-2xl">
+            Slide your numbers below. The result is a conservative projection based on real conversion benchmarks.
+          </p>
         </div>
 
-        {/* ── RIGHT: Outputs ───────────────────────────────────────────────── */}
-        <div className="flex flex-col gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          {/* ── LEFT: Inputs ─────────────────────────────────────────────────── */}
+          <div className="space-y-8">
+            {/* Follower Count */}
+            <div className="space-y-3">
+              <div className="flex justify-between text-xs uppercase tracking-wider">
+                <span className="text-zinc-400">Instagram Followers</span>
+                <span className="text-white font-mono bg-white/5 px-2.5 py-0.5 border border-white/10">
+                  {fmtFollowers(followers)}
+                </span>
+              </div>
+              <input
+                type="range" min={10_000} max={500_000} step={5_000}
+                value={followers}
+                onChange={(e) => setFollowers(Number(e.target.value))}
+                className="w-full h-[2px] bg-zinc-800 rounded-none appearance-none cursor-pointer accent-white"
+              />
+              <div className="flex justify-between text-[10px] text-zinc-600 font-mono">
+                <span>10k</span><span>250k</span><span>500k</span>
+              </div>
+            </div>
 
-          {/* Week 1 */}
-          <div className="bg-black/40 border border-white/5 rounded-2xl p-5">
-            <span className="text-[10px] uppercase tracking-widest text-zinc-500 font-bold block mb-2">
-              Estimated Week 1 Revenue
-            </span>
-            <span className="text-3xl font-extrabold text-white font-mono tracking-tight">
-              {fmt(week1Net)}
-            </span>
-            <span className="block text-xs text-zinc-600 mt-1 font-mono">
-              Gross {fmt(week1Gross)} · your 70% share
-            </span>
+            {/* Engagement Rate */}
+            <div className="space-y-3">
+              <div className="flex justify-between text-xs uppercase tracking-wider">
+                <span className="text-zinc-400">Engagement Rate</span>
+                <span className="text-white font-mono bg-white/5 px-2.5 py-0.5 border border-white/10">
+                  {engagement}%
+                </span>
+              </div>
+              <input
+                type="range" min={0.5} max={12} step={0.5}
+                value={engagement}
+                onChange={(e) => setEngagement(Number(e.target.value))}
+                className="w-full h-[2px] bg-zinc-800 rounded-none appearance-none cursor-pointer accent-white"
+              />
+              <div className="flex justify-between text-[10px] text-zinc-600 font-mono">
+                <span>&lt;1%</span><span>5%</span><span>12%</span>
+              </div>
+            </div>
+
+            {/* Product Price */}
+            <div className="space-y-3">
+              <div className="flex justify-between text-xs uppercase tracking-wider">
+                <span className="text-zinc-400">Product Price Point</span>
+                <span className="text-white font-mono bg-white/5 px-2.5 py-0.5 border border-white/10">
+                  ${price}
+                </span>
+              </div>
+              <input
+                type="range" min={7} max={49} step={1}
+                value={price}
+                onChange={(e) => setPrice(Number(e.target.value))}
+                className="w-full h-[2px] bg-zinc-800 rounded-none appearance-none cursor-pointer accent-white"
+              />
+              <div className="flex justify-between text-[10px] text-zinc-600 font-mono">
+                <span>$7</span><span>$28</span><span>$49</span>
+              </div>
+            </div>
+
+            {/* Monthly Brand Deal Income */}
+            <div className="space-y-3">
+              <div className="flex justify-between text-xs uppercase tracking-wider">
+                <span className="text-zinc-400">Monthly Brand Deal Income</span>
+                <span className="text-white font-mono bg-white/5 px-2.5 py-0.5 border border-white/10">
+                  {fmt(brandDeals)}/mo
+                </span>
+              </div>
+              <input
+                type="range" min={0} max={20_000} step={500}
+                value={brandDeals}
+                onChange={(e) => setBrandDeals(Number(e.target.value))}
+                className="w-full h-[2px] bg-zinc-800 rounded-none appearance-none cursor-pointer accent-white"
+              />
+              <div className="flex justify-between text-[10px] text-zinc-600 font-mono">
+                <span>$0</span><span>$10k</span><span>$20k</span>
+              </div>
+            </div>
           </div>
 
-          {/* Year 1 */}
-          <div className="bg-black/40 border border-white/5 rounded-2xl p-5">
-            <span className="text-[10px] uppercase tracking-widest text-zinc-500 font-bold block mb-2">
-              Estimated Year 1 Revenue
-            </span>
-            <span className="text-3xl font-extrabold text-white font-mono tracking-tight">
-              {fmt(year1Net)}
-            </span>
-            <span className="block text-xs text-zinc-600 mt-1 font-mono">
-              Gross {fmt(Math.round(year1Net / CREATOR_SHARE))} · 3 launches + evergreen × 18
-            </span>
+          {/* ── RIGHT: Outputs ───────────────────────────────────────────────── */}
+          <div className="border border-white/10 p-8 space-y-8 bg-black">
+            {/* Primary Focus: Your 70% Share (Year 1) */}
+            <div className="border-b border-white/10 pb-6">
+              <span className="text-xs uppercase tracking-[0.2em] text-zinc-500 font-medium block mb-2">
+                Your 70% Share (Year 1)
+              </span>
+              <span className="text-4xl md:text-5xl font-extrabold text-white font-mono tracking-tight block">
+                {fmt(year1Net)}
+              </span>
+              <span className="block text-[11px] text-zinc-500 mt-2 tracking-wide">
+                Based on a structured launch model (3 launches + evergreen sequence).
+              </span>
+            </div>
+
+            {/* Week 1 Details */}
+            <div className="flex justify-between items-center text-xs">
+              <span className="text-zinc-500 uppercase tracking-widest">Estimated Week 1 (Net)</span>
+              <span className="text-white font-mono font-medium">{fmt(week1Net)}</span>
+            </div>
+
+            {/* Year 1 Details */}
+            <div className="flex justify-between items-center text-xs">
+              <span className="text-zinc-500 uppercase tracking-widest">Estimated Year 1 (Gross)</span>
+              <span className="text-white font-mono font-medium">{fmt(Math.round(year1Net / CREATOR_SHARE))}</span>
+            </div>
+
+            {/* Baseline comparison */}
+            <div className="pt-4 border-t border-white/10 flex justify-between items-center text-xs">
+              <span className="text-zinc-500 uppercase tracking-widest">Opportunity Gap vs. Brand Deals</span>
+              <span className="text-white font-mono font-medium">{fmt(gap)}</span>
+            </div>
           </div>
-
-          {/* Opportunity Gap */}
-          <motion.div
-            initial={{ opacity: 0.7 }}
-            animate={{ opacity: 1 }}
-            className="bg-white/5 border border-white/20 rounded-2xl p-6 text-center relative overflow-hidden shadow-lg shadow-white/5 flex-1 flex flex-col items-center justify-center"
-          >
-            <div className="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full blur-2xl pointer-events-none" />
-            <span className="text-[10px] uppercase tracking-widest text-zinc-300 font-bold block mb-1">
-              Opportunity Gap vs. Brand Deals
-            </span>
-            <span className="text-3xl md:text-4xl font-extrabold text-white font-mono tracking-tight">
-              {fmt(gap)}
-            </span>
-            <span className="text-xs text-zinc-500 mt-2 block font-light">
-              Revenue left on the table this year without a backend.
-            </span>
-          </motion.div>
-
         </div>
       </div>
-    </div>
+    </section>
   );
 }
